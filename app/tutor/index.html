@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>医学伴学教辅</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/original.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="brand">一起学 · 医学教辅<span>西医综合 · 多学科</span></div>
+  <div class="unit-switch-container">
+    <label for="unit-switcher" class="unit-switch-label">当前疾病：</label>
+    <select id="unit-switcher" class="unit-switcher" aria-label="切换学习疾病">
+      <option value="">正在读取单元列表…</option>
+    </select>
+  </div>
+  <div id="stage" class="stage-badge">课程原讲义完整版 · 伴随干货与三梯队习题</div>
+  <span id="save-state" role="status">正在读取记录…</span>
+</header>
+
+<div class="layout">
+  <!-- Left TOC -->
+  <nav class="outline" aria-label="本节目录">
+    <div id="unit-eyebrow" class="eyebrow">正在载入…</div>
+    <h1 id="unit-title">医学伴学教辅</h1>
+    <div id="unit-meta" class="handout-meta"></div>
+    <div id="toc"></div>
+    <button id="record-toggle" class="secondary" type="button">查看已保存的作答与积累</button>
+    <div class="scope">讲义原貌平铺展示 · 消除弹窗遮挡<br>右侧伴随提炼干货 · 尾部梯队真题</div>
+  </nav>
+
+  <!-- Middle Reading Area -->
+  <main id="reading">
+    <div class="reader-tools">
+      <span id="section-count"></span>
+      <div id="section-minimap" class="mini-map-tags"></div>
+    </div>
+    <article id="lesson"></article>
+    <div id="practice"></div>
+    <div class="reading-bottom">
+      <button id="previous" class="secondary" type="button">上一部分</button>
+      <button id="next" type="button">下一部分</button>
+    </div>
+  </main>
+
+  <!-- Right Companion Sidebar -->
+  <aside class="companion" aria-label="学习伴随面板">
+    <div class="companion-head">
+      <div class="companion-tabs">
+        <button id="tab-points" class="tab-btn active" type="button">💡 核心干货点睛</button>
+        <button id="tab-ask" class="tab-btn" type="button">💬 随堂问老师</button>
+      </div>
+    </div>
+
+    <!-- Panel 1: Core Keypoints -->
+    <div id="companion-points" class="companion-panel">
+      <div class="companion-section-title">
+        <span class="badge-accent">当前小节提炼</span>
+        <h3 id="panel-section-title">概念与发病机制</h3>
+      </div>
+      
+      <div class="card-point tiantian-card">
+        <div class="card-header">
+          <span class="icon">🔬</span>
+          <strong>【主讲机制点睛】</strong>
+        </div>
+        <div id="tt-points-list" class="points-list"></div>
+      </div>
+
+      <div class="card-point damiao-card">
+        <div class="card-header">
+          <span class="icon">🎯</span>
+          <strong>【口诀月考 / 执医秒杀】</strong>
+        </div>
+        <div id="dm-points-list" class="points-list"></div>
+      </div>
+
+      <div class="card-point note-card">
+        <div class="card-header">
+          <span class="icon">✍️</span>
+          <strong>【建议抄回讲义的一句话】</strong>
+        </div>
+        <p id="handout-note-text" class="note-summary"></p>
+      </div>
+
+      <div id="cross-card-wrapper" class="card-point cross-card">
+        <div class="card-header">
+          <span class="icon">🧬</span>
+          <strong>【西综跨学科联动 · 病理 / 生理】</strong>
+          <span id="cross-badge" class="badge-accent" style="margin-left: auto; font-size: 11px;"></span>
+        </div>
+        <div id="cross-source-bar" class="cross-source-bar">
+          <span id="cross-source-label" class="cross-source-label"></span>
+          <button id="view-cross-source-btn" class="cross-view-btn" type="button">📖 对照原讲义</button>
+        </div>
+        <div id="cross-points-list" class="points-list"></div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Ask AI -->
+    <div id="companion-ask" class="companion-panel" hidden>
+      <div class="context">
+        <span>正在讨论</span>
+        <strong id="context-title">概念与基本特征</strong>
+        <div id="selection-note" hidden></div>
+      </div>
+      <div id="messages" aria-live="polite">
+        <div class="welcome">你可以直接向 AI 老师提问本节卡点，也可以在左侧讲义中选中一段文字后再提问。</div>
+      </div>
+      <div id="answer-status" role="status"></div>
+      <div id="quick-chips" class="quick-chips"></div>
+      <form id="ask-form">
+        <label for="question-input">你的问题或解题疑问：</label>
+        <textarea id="question-input" rows="3" placeholder="例如：气道高反应性和慢性炎症是什么因果关系？"></textarea>
+        <div class="composer-bottom">
+          <span>Ctrl + Enter 发送</span>
+          <button type="submit" id="send">问老师</button>
+        </div>
+      </form>
+    </div>
+  </aside>
+</div>
+
+<!-- Modal for saved records -->
+<dialog id="records">
+  <div class="dialog-head">
+    <h2>自动保留的学习积累</h2>
+    <div class="dialog-actions">
+      <button id="copy-markdown-btn" class="secondary" type="button">📋 复制全部小记为 Markdown</button>
+      <button id="close-records" class="secondary" type="button">关闭</button>
+    </div>
+  </div>
+  <p>所有作答结果、思路、题后笔记均已持久化保存在本机项目文件（data/session*.json）。</p>
+  <div id="record-content"></div>
+</dialog>
+
+<div id="toast" role="status" hidden></div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+/* original.css: Styles for original handout reader and PDF canvas */
+.original-reader {
+  margin: 16px 0 24px;
+}
+
+.original-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid #dce4d6;
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  padding: 10px 14px;
+  font-size: 13px;
+  background: #f7faf4;
+}
+.original-toolbar strong {
+  flex-basis: 100%;
+  font-size: 13px;
+  color: #1e4533;
+}
+.original-toolbar button {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+.original-toolbar select {
+  font: inherit;
+  padding: 5px 8px;
+  border: 1px solid #ccd6c7;
+  border-radius: 5px;
+  background: white;
+  color: #324b3e;
+}
+.original-toolbar a {
+  margin-left: auto;
+  font-size: 12px;
+}
+
+.selection-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: sticky;
+  top: 70px;
+  z-index: 15;
+  padding: 10px 14px;
+  background: #f0f7fc;
+  border: 1px solid #b3d1e6;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.selected-preview {
+  flex-basis: 100%;
+  line-height: 1.5;
+  max-height: 50px;
+  overflow-y: auto;
+  color: #18486b;
+  font-weight: 500;
+}
+.selection-toolbar button {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.selection-toolbar input {
+  font: inherit;
+  padding: 5px 8px;
+  border: 1px solid #b7cad5;
+  border-radius: 4px;
+  min-width: 140px;
+  flex: 1;
+}
+
+.original-scroll {
+  overflow-x: auto;
+  overflow-y: visible;
+  background: #edf0e9;
+  border: 1px solid #dce4d6;
+  border-radius: 0 0 8px 8px;
+  padding: 16px 12px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.page-divider-badge {
+  background: #e1ebdc;
+  color: #1d4d35;
+  font-size: 12px;
+  font-weight: 650;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #cbdac4;
+  margin-bottom: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.original-page {
+  position: relative;
+  background: white;
+  margin: 0 auto;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  border-radius: 4px;
+}
+.original-page canvas {
+  display: block;
+}
+
+.page-marks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.page-mark {
+  position: absolute;
+  border-bottom: 2px solid #2c78af;
+  background: rgba(67, 143, 204, 0.2);
+}
+.page-mark.was-wrong {
+  border-bottom-color: #bd5b13;
+  background: rgba(222, 130, 59, 0.2);
+}
+.page-mark.from-question {
+  background: transparent;
+  border-left: 4px solid #2c78af;
+  border-bottom: 0;
+}
+.page-mark.was-wrong:not(.personal) {
+  border-left: 4px solid #bd5b13;
+}
+
+.original-page.box-mode .textLayer {
+  pointer-events: none;
+}
+.original-page.box-mode {
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.drag-layer {
+  position: absolute;
+  pointer-events: none;
+  border: 2px dashed #357eae;
+  background: rgba(53, 126, 174, 0.2);
+  z-index: 4;
+}
+
+.page-note-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0 0;
+  width: 100%;
+}
+.page-note-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #f0f6fa;
+  border-left: 3px solid #2c78af;
+  border-radius: 4px;
+  margin-bottom: 2px;
+}
+.page-note-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a567d;
+}
+.page-note-hint {
+  font-size: 11px;
+  color: #5d8199;
+}
+.saved-note {
+  border-left: 3px solid #2c78af;
+  padding: 10px 14px;
+  background: #f0f6fa;
+  font-size: 13px;
+  line-height: 1.7;
+  border-radius: 0 6px 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.saved-note p { margin: 0; flex: 1; }
+.saved-note.was-wrong {
+  border-left-color: #bd5b13;
+  background: #fff5eb;
+}
+.note-label {
+  font-size: 11px;
+  color: #21658f;
+  font-weight: 700;
+}
+.saved-note.was-wrong .note-label { color: #a34c0f; }
+.saved-note button {
+  font-size: 11px;
+  padding: 4px 8px;
+}
+.saved-note.withdrawn {
+  opacity: 0.6;
+  border-style: dashed;
+}
+.saved-note.withdrawn p { text-decoration: line-through; }
+
+/* PDF.js 6.5 TextLayer geometry */
+.textLayer {
+  color-scheme: only light;
+  position: absolute;
+  text-align: initial;
+  inset: 0;
+  overflow: clip;
+  line-height: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-size-adjust: none;
+  forced-color-adjust: none;
+  transform-origin: 0 0;
+  z-index: 1;
+  --min-font-size: 1;
+  --text-scale-factor: calc(var(--total-scale-factor) * var(--min-font-size));
+  --min-font-size-inv: calc(1 / var(--min-font-size));
+}
+.textLayer :is(span, br) {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0 0;
+  user-select: text;
+}
+.textLayer > :not(.markedContent),
+.textLayer .markedContent span:not(.markedContent) {
+  z-index: 1;
+  --font-height: 0;
+  font-size: calc(var(--text-scale-factor) * var(--font-height));
+  --scale-x: 1;
+  --rotate: 0deg;
+  transform: rotate(var(--rotate)) scaleX(var(--scale-x)) scale(var(--min-font-size-inv));
+}
+.textLayer .markedContent { display: contents; }
+.textLayer span[role="img"] { user-select: none; }
+.textLayer ::selection {
+  background: rgba(38, 124, 186, 0.28);
+  color: transparent;
+}
+.textLayer br::selection { background: transparent; }

@@ -1,0 +1,127 @@
+[
+  {
+    "path": "ARCHITECTURE.md",
+    "bytes": 7779,
+    "sha256": "3c47bce264cd2ffc54d119635447f18f274c696b6bcd850ca1f37501e0456954"
+  },
+  {
+    "path": "CHANGELOG.md",
+    "bytes": 3227,
+    "sha256": "54bf8c7ee44b9a9a4e7746a1e4d41d2d63cf9b0db3ae85b348d4d48f0ea66dac"
+  },
+  {
+    "path": "LICENSE-NOTICE.md",
+    "bytes": 1422,
+    "sha256": "ecdbc4fd2dca1d5bf3e01a5158077ebfaed526e81732aaa0e88e1735f01583d3"
+  },
+  {
+    "path": "README.md",
+    "bytes": 9402,
+    "sha256": "b6ce9ed8da03ebfc72e27a1f543a9c0b5beeacb7e738eb8824829042c3ff74ef"
+  },
+  {
+    "path": "app/tutor/agent.py",
+    "bytes": 6355,
+    "sha256": "a23de806de568bec045f4f7208b63dd39d3897b225377f59df82a450c9053d4c"
+  },
+  {
+    "path": "app/tutor/app.js",
+    "bytes": 40587,
+    "sha256": "4587a2e46098621169161e682d8296c93734f99528e9245ba99f241fe0edead3"
+  },
+  {
+    "path": "app/tutor/build_unit.py",
+    "bytes": 2408,
+    "sha256": "700303dc28cd96cec67e65d9ee2ee16ae6eda7ce0c54a045b3d38c01d526f9d3"
+  },
+  {
+    "path": "app/tutor/compile_units.py",
+    "bytes": 15975,
+    "sha256": "528aef81970e70b0c283a76e3fe46bddabddc76298e7bcf63185426cb869cf24"
+  },
+  {
+    "path": "app/tutor/index.html",
+    "bytes": 5657,
+    "sha256": "a29ce4c5cd42b22120defdd5f5dded42f68113fbd3cb21acc8fc7c67696e5697"
+  },
+  {
+    "path": "app/tutor/launch.py",
+    "bytes": 2551,
+    "sha256": "d049c4cd5d23b9fc25e54c68eb83ad303a7ada4b6715b3141458307fe461fd8e"
+  },
+  {
+    "path": "app/tutor/original-reader.js",
+    "bytes": 10883,
+    "sha256": "2f3cc9f5a8b27da412dc78dc7a4e39caea7e0e461e0c253b25493f385a3dd469"
+  },
+  {
+    "path": "app/tutor/original.css",
+    "bytes": 5173,
+    "sha256": "1244525c13cdd64e55893b1a5263729f5d057981f9f09ac03c9097d62b8e0d68"
+  },
+  {
+    "path": "app/tutor/server.py",
+    "bytes": 35520,
+    "sha256": "a9936b5274fda8489a8e64ca96d73d969fc70bed3b9a029de4d6e3a70d8bc0ef"
+  },
+  {
+    "path": "app/tutor/smoke_agent.py",
+    "bytes": 672,
+    "sha256": "6e4b69e8d76cf9601bd5e6d8a87d0aefa13323767597a06b96a3f01b464c7210"
+  },
+  {
+    "path": "app/tutor/start.ps1",
+    "bytes": 1126,
+    "sha256": "b50de9b9066f0e47abebccb1ca5bf300057b98e576fffae96aeaf70776683b02"
+  },
+  {
+    "path": "app/tutor/style.css",
+    "bytes": 22919,
+    "sha256": "ba5cd3a4c902d202bcff4bc5be4a0add4f77c79189047c15f5f0940a205a064b"
+  },
+  {
+    "path": "app/tutor/test_server.py",
+    "bytes": 11091,
+    "sha256": "ffec4c28713d1c3f43ff89cc17e3e3e3005dd4a4517f9fc5fb559461f76b5234"
+  },
+  {
+    "path": "app/tutor/verify_live.py",
+    "bytes": 1480,
+    "sha256": "8a50c780e032a4a05d63a909aafe01af67cd6a5df61f43f6dd43d2c42d46efbe"
+  },
+  {
+    "path": "app/tutor/verify_unit.py",
+    "bytes": 15279,
+    "sha256": "d9a6bbdc271c0a56125dcdf3b2513e34e5afa0eb2f01229eacc072545cf48a64"
+  },
+  {
+    "path": "app/tutor/打开学习.cmd",
+    "bytes": 155,
+    "sha256": "b85bcc64f7fcacea434d72c493a89587cf78812bfda526f217e7083c9a3d0e26"
+  },
+  {
+    "path": "demo/界面示意-练习反馈.svg",
+    "bytes": 5500,
+    "sha256": "a8e6d273279868ca019fa1aa995f673514f97f29b90f37c02b605084a4f471f8"
+  },
+  {
+    "path": "demo/界面示意-阅读页.svg",
+    "bytes": 4761,
+    "sha256": "4e9657c15d97b08dc0ea2378924e531109bd045b9b0049628f9fcc8df4d8efee"
+  },
+  {
+    "path": "docs/公开范围与已知限制.md",
+    "bytes": 4248,
+    "sha256": "18b600bc3ab0167fa0cae950c37e1a1c919d452de22931ce67b9811be08363c2"
+  },
+  {
+    "path": "docs/功能介绍.md",
+    "bytes": 3307,
+    "sha256": "6d719028473b0662a2cce1603260b496354c45b0492ed8687d0c94c15d0d096d"
+  },
+  {
+    "path": "docs/验收摘要.md",
+    "bytes": 2313,
+    "sha256": "5482e109d27d14e3042d4b89a2fbfc01cf9fed2a011d5cc2970984dfa9d8cf72"
+  }
+]
